@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>For temi</title>
+
+<!-- Fonts: a soft handwritten display font + a clean rounded body font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Full-screen background layer. JS will try to load images/background.jpg;
+       if it's not there yet, a soft navy gradient shows instead. -->
+  <div id="bg-layer"></div>
+  <div id="bg-overlay"></div>
+
+  <!-- Ambient floating emoji (purely decorative) -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <main id="app">
+
+    <!-- ===================== QUESTION CARD ===================== -->
+    <section id="question-card" class="card">
+      <p id="question-counter" class="eyebrow"></p>
+      <h1 id="question-text" class="question-text"></h1>
+
+      <!-- Yes/No buttons (shown for type: "yesno") -->
+      <div id="yesno-controls" class="controls hidden">
+        <button id="btn-yes" class="btn btn-primary">tiim</button>
+        <button id="btn-no" class="btn btn-secondary">ugui</button>
+      </div>
+
+      <!-- Slider control (shown for type: "slider") -->
+      <div id="slider-controls" class="controls slider-controls hidden">
+        <input type="range" id="slider-input" min="0" max="100" value="50">
+        <div id="slider-value" class="slider-value">50%</div>
+        <button id="btn-slider-submit" class="btn btn-primary">urgejluuuliiii tegvel</button>
+      </div>
+
+      <!-- Date control (shown for type: "date") -->
+      <div id="date-controls" class="controls date-controls hidden">
+        <input type="date" id="date-input">
+        <button id="btn-date-submit" class="btn btn-primary">got it!</button>
+      </div>
+
+      <!-- Info slide (shown for type: "info") — just facts to read, no
+           answer needed, just a Continue button -->
+      <div id="info-controls" class="controls info-controls hidden">
+        <ul id="info-list" class="info-list"></ul>
+        <button id="btn-info-continue" class="btn btn-primary">thhh tegsin</button>
+      </div>
+
+      <!-- Chase controls (shown for type: "chaseyes") — No dodges around
+           the screen, Yes grows bigger each time, until Yes gets pressed -->
+      <div id="chase-controls" class="controls chase-controls hidden">
+        <button id="btn-chase-yes" class="btn btn-primary chase-yes-btn">tgiooooo</button>
+        <button id="btn-chase-no" class="btn btn-secondary chase-no-btn">ugueuueu</button>
+      </div>
+
+      <!-- Picture/message-only slide (shown for type: "message") -->
+      <div id="message-controls" class="controls message-controls hidden">
+        <img id="message-image" class="message-image" src="" alt="">
+        <button id="btn-message-continue" class="btn btn-primary">urgejluuuliiii tegvel</button>
+      </div>
+    </section>
+
+    <!-- ===================== POPUP AFTER ANSWERING ===================== -->
+    <div id="popup-overlay" class="overlay hidden">
+      <div id="popup-card" class="card popup-card">
+        <img id="popup-image" class="popup-image" src="" alt="">
+        <p id="popup-message" class="popup-message"></p>
+        <button id="popup-continue" class="btn btn-primary">urgejluuuliiii tegvel</button>
+      </div>
+    </div>
+
+    <!-- ===================== FINAL SCREEN ===================== -->
+    <section id="final-screen" class="card hidden">
+      <h1 class="final-title">thats all🐺.   literal vibecode 3am typeshit</h1>
+      <p id="final-message" class="final-message"></p>
+      <p class="final-submessage"></p>
+    </section>
+
+  </main>
+
+  <!-- Music control (mute button), hidden until you add a track -->
+  <button id="music-toggle" class="music-toggle hidden" aria-label="Toggle music">🔇</button>
+  <audio id="bg-music" loop></audio>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- EmailJS SDK (loaded from CDN, only runs in the visitor's browser) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
